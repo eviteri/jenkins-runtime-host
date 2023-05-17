@@ -33,9 +33,13 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Report') {
+        stage('Deploy') {
             steps {
-                echo 'Reporting....'
+                echo 'Deploying....'
+                sh 'aws --version'
+                sh 'aws s3 sync build/ s3://jenkins-runtime-host'
+                echo 'Deployed!' 
+                echo 'S3 URL: http://jenkins-runtime-host.s3-website-us-east-1.amazonaws.com'
             }
         }
     }
