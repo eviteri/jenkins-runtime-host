@@ -8,6 +8,7 @@ import { getRemotesConfig } from './services/remotesConfig'
 import { remotesConfig } from './services/remotesConfig/localRemotesConfig'
 import { RemotesConfig } from './services/remotesConfig/types'
 
+// Testing Jenkins Connection
 function App() {
   const [currentRoute, setCurrentRoute] = useState<Routes>('home')
   const [remotesAppConfig, setRemotesAppConfig] =

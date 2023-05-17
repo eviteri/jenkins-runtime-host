@@ -24,19 +24,13 @@ pipeline {
 
     // the pipeline section we all know and love: stages! :D
     stages {
-        stage('Requirements') {
-            steps {
-                echo 'Installing requirements...'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+                sh 'node --version'
+                sh 'npm --version'
+                sh 'npm ci'
+                sh 'npm run build'
             }
         }
         stage('Report') {
